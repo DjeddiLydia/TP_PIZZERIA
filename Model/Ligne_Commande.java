@@ -62,6 +62,10 @@ public class Ligne_Commande {
         this.pizza = pizza;
     }
 
+    public void setPrix(double prix) {
+        this.prix = prix;
+    }
+
     @Override
     public String toString() {
         return quantite + " Pizza " + pizza.getNom() + " ( Format : " + taille + " ) ---- Prix : " + String.format("%.2f", prix)+"€";

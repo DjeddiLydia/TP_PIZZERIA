@@ -14,6 +14,7 @@ public class FenetreCommande extends JFrame {
     JComboBox<String> pizzas = new JComboBox<>() ;
     JComboBox<Format_Pizza> formats = new JComboBox<>(Format_Pizza.values()) ;
     JButton addLigneC = new JButton("Ajouter");
+    JButton supprLigneC = new JButton("Supprimer");
     JButton commander = new JButton("Commander");
     DefaultListModel<String> listModel = new DefaultListModel<>();
     JList<String> listLignesCommande = new JList<>(listModel);
@@ -32,7 +33,7 @@ public class FenetreCommande extends JFrame {
        panelGauche.add(quantite);
        panelGauche.add(new JLabel("Choisir le Format:"));
        panelGauche.add(formats);
-       panelGauche.add(new JLabel()) ; //Invisible et utilisé juste pour occuper la cellule (5;2)
+       panelGauche.add(supprLigneC) ;
        panelGauche.add(addLigneC);
 
        //Le coté droit de la fenetre
@@ -48,6 +49,7 @@ public class FenetreCommande extends JFrame {
         Controller.ControllerFenetreCommande crtl = new ControllerFenetreCommande(this,pizzeria) ;
         addLigneC.addActionListener(crtl);
         commander.addActionListener(crtl);
+        supprLigneC.addActionListener(crtl);
         pack();
         setVisible(true);
 
@@ -80,5 +82,26 @@ public class FenetreCommande extends JFrame {
     public JTextField getNumTelJTextField() {
         return numTel;
     }
+    public JButton getSupprLigneCJButton(){
+        return  supprLigneC ;
+    }
+
+    public boolean verifQuantite(int q){
+        if (q>0){
+            quantite.setForeground(Color.BLACK);
+            return true ;
+        }
+        quantite.setText("Invalide");
+        quantite.setForeground(Color.RED);
+        return false ;
+
+    }
+
+
+    public void erreurNumTel(){
+        numTel.setText("HERE !");
+        numTel.setForeground(Color.RED);
+    }
+
 
 }

@@ -23,15 +23,23 @@ public class Commande {
         return prix_total ;
     }
 
-    public void ajoutSousCommande (Ligne_Commande l){
+    public Ligne_Commande ajoutSousCommande (Ligne_Commande l){
         for (Ligne_Commande ligne : sous_commandes){
             if (ligne.getPizza() == l.getPizza() && ligne.getTaille()==l.getTaille()){
                 ligne.setQuantite(ligne.getQuantite()+l.getQuantite());
-                return;
+                ligne.setPrix(ligne.calcul_prix());
+                return ligne;
             }
         }
         sous_commandes.add(l) ;
+        return l ;
     }
+
+    public void supprimerLignecmd(){
+        //Supprimer la dernière ligne de commande
+        sous_commandes.removeElementAt(sous_commandes.size()-1);
+    }
+
     public int nbPizzasCommande(){
         int resu = 0 ;
         for (Ligne_Commande ligne : sous_commandes){
@@ -50,6 +58,14 @@ public class Commande {
 
     public void setDate(Date d){
         date = d ;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Vector<Ligne_Commande> getSous_commandes() {
+        return sous_commandes;
     }
 
     public String toString(){
