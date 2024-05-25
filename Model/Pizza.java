@@ -24,6 +24,14 @@ public class Pizza {
     public double getPrix_base(){
         return prix_base ;
     }
+    public String getIngredientsAsString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Ingrédients :\n");
+        for (String ingredient : ingredients) {
+            sb.append("- ").append(ingredient).append("\n");
+        }
+        return sb.toString();
+    }
 
 
 

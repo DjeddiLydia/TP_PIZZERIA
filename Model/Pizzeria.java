@@ -1,5 +1,8 @@
 package Model;
 
+import Vue.FenetreCatalogue;
+import Vue.FenetreLivreurs;
+
 import java.util.*;
 
 public class Pizzeria {
@@ -25,6 +28,9 @@ public class Pizzeria {
     }
     public void setVehicules(Vector<Vehicule> vehicules) {
         this.vehicules = vehicules;
+    }
+    public Vector<Livreur> getListLivreurs(){
+        return listLivreurs ;
     }
 
     public Client client_exist(String numtel ){
@@ -66,7 +72,7 @@ public class Pizzeria {
                         c.ajoutSousCommande(ligne);
                     }
                     cl.setNbpizzasAchetees( 0 );
-                    Livraison livraison = new Livraison(0,v,liv);
+                    Livraison livraison = new Livraison(v,liv,c);
                     liv.ajouterLivraison(livraison);
                     liv.setLibre(false);
                     v.setLibre(false);
@@ -77,6 +83,7 @@ public class Pizzeria {
             else return -1 ; //Pas de livreur ou véhicule libre
 
     }
+
 
 
 }

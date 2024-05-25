@@ -2,6 +2,7 @@ package Controller;
 
 import Model.*;
 import Vue.FenetreCommande;
+import Vue.FenetreLivreurs;
 
 import javax.swing.*;
 import java.awt.*;
@@ -63,7 +64,6 @@ public class ControllerFenetreCommande implements  ActionListener{
         }
         else {
             String message = "Félicitations ! Votre commande a été passée avec succès.\n" + cmd.toString() ;
-
             JOptionPane.showMessageDialog(null, message, message, JOptionPane.INFORMATION_MESSAGE);
         }
     }
@@ -99,6 +99,7 @@ public class ControllerFenetreCommande implements  ActionListener{
 
 
     }
+
 
 
 

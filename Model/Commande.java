@@ -68,15 +68,23 @@ public class Commande {
         return sous_commandes;
     }
 
-    public String toString(){
-       return  "Récapitulatif de la commande :\n" +
-                "- Numéro de téléphone : " + client.getNum_tel() + "\n" +
-                "- Date de la commande : " + date +" \n" +
-                "- Prix total : "+calcul_prix()+" EURO \n";
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<html>")
+                .append("Récapitulatif de la commande : <br>")
+                .append("<ul>")
+                .append("<li>Numéro de téléphone du client : ").append(client.getNum_tel()).append("</li>")
+                .append("<li>Date : ").append(date).append("</li>")
+                .append("<li>Prix total : ").append(calcul_prix()).append(" EURO</li>")
+                .append("</ul>")
+                .append("</html>");
+        return sb.toString();
+
     }
 
 
-
-
-
+    public Date getDate() {
+        return date ;
+    }
 }

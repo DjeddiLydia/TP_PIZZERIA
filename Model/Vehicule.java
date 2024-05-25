@@ -27,4 +27,7 @@ public class Vehicule {
     public void setLibre(boolean libre) {
         this.libre = libre;
     }
+    public String getMatricule(){
+        return matricule ;
+    }
 }

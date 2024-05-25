@@ -14,6 +14,9 @@ public class Catalogue {
         listPizzas = pz ;
         this.pizzeria = pizzeria ;
     }
+    public Vector<Pizza> getListPizzas(){
+        return listPizzas ;
+    }
     public Pizza random_pizza(){
         Random random = new Random();
         int randomNumber = random.nextInt(listPizzas.size()) ;

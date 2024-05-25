@@ -34,9 +34,6 @@ public class Main {
         livreurs.add(new Livreur("Sophie",pizzeria)) ;
         pizzeria.setListLivreurs(livreurs);
 
-        /*for(Livreur liv : livreurs){
-            liv.setLibre(false);
-        }*/
 
         //Création des véhicules
         Vector<Vehicule> vehicules = new Vector<>();
@@ -45,7 +42,7 @@ public class Main {
         vehicules.add(new Vehicule("Yamaha", "9012EF", Type_Vehicule.Moto, pizzeria));
         pizzeria.setVehicules(vehicules);
 
-        FenetreCommande fenetreCommande = new FenetreCommande(pizzeria) ;
+        FenetrePrincipale fenetrePrincipale = new FenetrePrincipale(pizzeria) ;
 
 
     }

@@ -9,6 +9,7 @@ public class Client {
     private Vector<Commande> listCommandes = new Vector<>() ;
     private Pizzeria pizzeria;
     private int nbpizzasAchetees = 0 ;
+    private List<ClientObserver> observers = new ArrayList<>();
 
     public Client() {
     }
@@ -53,5 +54,43 @@ public class Client {
     }
 
 
+    public double getSolde() {
+        return solde ;
+    }
 
+    public Vector<Commande> getListCommandes() {
+        return listCommandes ;
+    }
+
+    public void addObserver(ClientObserver observer) {
+
+        observers.add(observer);
+
+    }
+
+
+
+    public void removeObserver(ClientObserver observer) {
+
+        observers.remove(observer);
+
+    }
+
+
+
+    private void notifyObservers() {
+
+        for (ClientObserver observer : observers) {
+
+            observer.updateCommandes();
+
+        }
+
+    }
+
+    public interface ClientObserver {
+
+        void updateCommandes();
+
+    }
 }

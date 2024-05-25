@@ -9,7 +9,6 @@ public class Livreur {
     private Vector<Livraison> listLivraisons = new Vector<>();
     public Livreur() {
     }
-
     public Livreur(String nom,Pizzeria pizzeria){
         this.nom = nom ;
         this.pizzeria = pizzeria ;
@@ -22,5 +21,19 @@ public class Livreur {
     }
     public void ajouterLivraison(Livraison liv){
         listLivraisons.add(liv) ;
+    }
+    public String toString(){
+        return nom ;
+    }
+
+    public String getNom() {
+        return nom ;
+    }
+
+    public Livraison getCurrentLivraison(){
+        return listLivraisons.lastElement() ;
+    }
+    public Pizzeria getPizzeria(){
+        return pizzeria ;
     }
 }
